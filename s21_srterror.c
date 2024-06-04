@@ -7,8 +7,8 @@ char *s21_strerror(int errnum) {
 
 #define S21_ERRORS_LIST_SIZE 134
 
-  static char *error_massege = "Unknown error";
-  static char *linux_errors_list[S21_ERRORS_LIST_SIZE] = {
+  static char *const error_massege = "Unknown error";
+  static char *const linux_errors_list[S21_ERRORS_LIST_SIZE] = {
       [0] = "Success",
       [1] = "Operation not permitted",
       [2] = "No such file or directory",
@@ -167,7 +167,7 @@ char *s21_strerror(int errnum) {
 
 #endif
 
-  if (errnum < 0 || errnum > S21_ERRORS_LIST_SIZE) {
+  if (errnum < 0 || errnum >= S21_ERRORS_LIST_SIZE) {
     return error_massege;
   }
 

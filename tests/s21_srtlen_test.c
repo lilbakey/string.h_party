@@ -73,7 +73,6 @@ START_TEST(strlen_6) {
 }
 END_TEST
 
-
 TCase *tcase_s21_strlen(void) {
   TCase *tcase = tcase_create("s21_strlen");
   tcase_add_test(tcase, test_s21_strlen_normal);

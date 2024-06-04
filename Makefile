@@ -9,7 +9,6 @@ TEST_DIR=tests
 TEST_CFILES=$(wildcard $(TEST_DIR)/*_test.c)
 TEST_OFILES=$(patsubst %.c, %.o, $(TEST_CFILES))
 
-
 all: s21_string.a
 
 s21_string.a: $(CFILES)
@@ -17,9 +16,17 @@ s21_string.a: $(CFILES)
 	ar rcs $@ $(OFILES)
 	ranlib $@
 
-tests: $(TEST_CFILES) s21_string.a
+test: $(TEST_CFILES) s21_string.a
 	# $(CC) $(CFLAGS) -c $(TEST_CFILES) $(LIBFLAGS)
 	$(CC) $(CFLAGS) $^ -o test.out $(LIBFLAGS)
+
+gcov_report: CFLAGS += --coverage -O0
+gcov_report: clean test
+	gcov -f $(CFILES)
+	mkdir report
+	./test.out
+	lcov --directory . --capture --output-file coverage.info
+	genhtml coverage.info --output-directory ./report
 
 check:
 	clang-format -style='{BasedOnStyle: Google}' -i *.c
@@ -27,4 +34,8 @@ check:
 	cppcheck --enable=all --suppress=missingIncludeSystem *.c *.h
 
 clean:
-	rm -f *.o s21_string.a test.out
+	rm -f *.o s21_string.a
+	rm -f test.out
+	rm -f *.gcno *.gcov *.gcda
+	rm -f *.info
+	rm -fr ./report
