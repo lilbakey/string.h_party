@@ -3,8 +3,11 @@
 #include "../s21_string.h"
 
 Suite *string_suite(void);
+extern TCase *tcase_s21_strlen(void);
 
 int main(void) {
+
+  
 
   Suite *s = string_suite();
   SRunner *runner = srunner_create(s);
@@ -15,6 +18,8 @@ int main(void) {
 
   return failed_count == 0 ? 0 : 1;
 }
+
+
 
 Suite *string_suite(void) {
   Suite *s = suite_create("String");
