@@ -4,11 +4,9 @@
 
 Suite *string_suite(void);
 extern TCase *tcase_s21_strlen(void);
+extern TCase *tcase_s21_strerror(void);
 
 int main(void) {
-
-  
-
   Suite *s = string_suite();
   SRunner *runner = srunner_create(s);
   srunner_run_all(runner, CK_NORMAL);
@@ -25,6 +23,7 @@ Suite *string_suite(void) {
   Suite *s = suite_create("String");
 
   suite_add_tcase(s, tcase_s21_strlen());
+  suite_add_tcase(s, tcase_s21_strerror());
 
   return s;
 }
