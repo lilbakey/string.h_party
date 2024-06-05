@@ -9,6 +9,8 @@ TEST_DIR=tests
 TEST_CFILES=$(wildcard $(TEST_DIR)/*_test.c)
 TEST_OFILES=$(patsubst %.c, %.o, $(TEST_CFILES))
 
+.PHONY: all s21_string.a test gcov_report check clean
+
 all: s21_string.a
 
 s21_string.a: $(CFILES)
