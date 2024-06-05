@@ -9,6 +9,7 @@ void *s21_memchr(const void *str, int c, s21_size_t n) {
       break;
     }
     n--;
+    str++;
   }
   return result;
 }
