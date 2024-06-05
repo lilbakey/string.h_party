@@ -30,8 +30,9 @@ gcov_report: clean test
 
 check:
 	clang-format -style='{BasedOnStyle: Google}' -i *.c
-	# clang-format -style='{BasedOnStyle: Google}' -i *.h
+	clang-format -style='{BasedOnStyle: Google}' -i *.h
 	cppcheck --enable=all --suppress=missingIncludeSystem *.c *.h
+	valgrind --tool=memcheck --leak-check=yes ./test.out
 
 clean:
 	rm -f *.o s21_string.a

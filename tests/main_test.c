@@ -3,6 +3,7 @@
 #include "../s21_string.h"
 
 Suite *string_suite(void);
+extern TCase *tcase_s21_memchr(void);
 extern TCase *tcase_s21_strlen(void);
 extern TCase *tcase_s21_strerror(void);
 
@@ -15,7 +16,7 @@ int main(void) {
   srunner_free(runner);
 
   // return failed_count == 0 ? 0 : 1;
-  (void) failed_count;
+  (void)failed_count;
   return 0;
 }
 
@@ -24,6 +25,7 @@ Suite *string_suite(void) {
 
   suite_add_tcase(s, tcase_s21_strlen());
   suite_add_tcase(s, tcase_s21_strerror());
+  suite_add_tcase(s, tcase_s21_memchr());
 
   return s;
 }
