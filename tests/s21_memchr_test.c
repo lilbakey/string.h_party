@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "../s21_string.h"
 #include "main_test.h"
 

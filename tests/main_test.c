@@ -10,6 +10,7 @@ extern TCase *tcase_s21_strstr(void);
 extern TCase *tcase_s21_strpbrk(void);
 extern TCase *tcase_s21_strcspn(void);
 extern TCase *tcase_s21_strncat(void);
+extern TCase *tcase_s21_memcmp(void);
 
 int main(void) {
   Suite *s = string_suite();
@@ -34,6 +35,7 @@ Suite *string_suite(void) {
   suite_add_tcase(s, tcase_s21_strpbrk());
   suite_add_tcase(s, tcase_s21_strcspn());
   suite_add_tcase(s, tcase_s21_strncat());
+  suite_add_tcase(s, tcase_s21_memcmp());
 
   return s;
 }
