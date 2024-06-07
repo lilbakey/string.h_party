@@ -81,6 +81,26 @@ START_TEST(test_s21_memcmp_8) {
 }
 END_TEST
 
+START_TEST(test_s21_memcmp_9) {
+  char str1[] = "0123456789";
+  char str2[] = "0123356789";
+  int len = strlen(str2);
+  int result = s21_memcmp(str1, str2, len);
+  int expected = memcmp(str1, str2, len);
+  ck_assert_int_eq(result, expected);
+}
+END_TEST
+
+START_TEST(test_s21_memcmp_10) {
+  char str1[] = "0123356789";
+  char str2[] = "0123456789";
+  int len = strlen(str2);
+  int result = s21_memcmp(str1, str2, len);
+  int expected = memcmp(str1, str2, len);
+  ck_assert_int_eq(result, expected);
+}
+END_TEST
+
 TCase *tcase_s21_memcmp(void) {
   TCase *tcase = tcase_create("s21_memcmp");
   tcase_add_test(tcase, test_s21_memcmp_1);
@@ -91,6 +111,8 @@ TCase *tcase_s21_memcmp(void) {
   tcase_add_test(tcase, test_s21_memcmp_6);
   tcase_add_test(tcase, test_s21_memcmp_7);
   tcase_add_test(tcase, test_s21_memcmp_8);
+  tcase_add_test(tcase, test_s21_memcmp_9);
+  tcase_add_test(tcase, test_s21_memcmp_10);
 
   return tcase;
 }
