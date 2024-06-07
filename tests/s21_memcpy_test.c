@@ -84,6 +84,7 @@ START_TEST(test_s21_memcpy_7) {
   ck_assert_str_eq(s21_result, result);
 }
 END_TEST
+
 TCase* tcase_s21_memcpy(void) {
   TCase* tcase = tcase_create("s21_memcpy");
   tcase_add_test(tcase, test_s21_memcpy_1);
