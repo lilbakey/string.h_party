@@ -72,6 +72,7 @@ START_TEST(test_s21_strpbrk_8) {
   ck_assert_ptr_eq(result, expected);
 }
 END_TEST
+
 START_TEST(test_s21_strpbrk_9) {
   char str1[] = "1234567890\t1234567890\n";
   char str2[] = "789 ";

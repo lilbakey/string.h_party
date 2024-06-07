@@ -2,7 +2,7 @@
 #include "main_test.h"
 
 START_TEST(test_s21_strstr_1) {
-  char str1[] = "Hello, world!";
+  char str1[] = "Hello, world!\n";
   char str2[] = " wo";
   char *result = s21_strstr(str1, str2);
   char *expected = strstr(str1, str2);
