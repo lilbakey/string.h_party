@@ -2,8 +2,9 @@
 
 int s21_sscanf(const char *str, const char *format, ...) {
     va_list args;
-    va_start(args);
-
+    va_start(args, format);
+    
+    va_end(args);
     return 0;
 }
 
