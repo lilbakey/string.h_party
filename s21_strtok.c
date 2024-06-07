@@ -10,12 +10,12 @@ char *s21_strtok(char *str, const char *delim) {
 
   if (string) {
     // skip begin delimeters
-    while (*string && !strcspn(string, delim)) string++;
+    while (*string && !s21_strcspn(string, delim)) string++;
 
     if (*string != '\0') {
       result = string;
 
-      while (*string && !strchr(delim, *string)) string++;
+      while (*string && !s21_strchr(delim, *string)) string++;
 
       if (*string) {
         *string++ = '\0';
