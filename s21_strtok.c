@@ -15,7 +15,8 @@ char *s21_strtok(char *str, const char *delim) {
     if (*string != '\0') {
       result = string;
 
-      while (*string && !s21_strchr(delim, *string)) string++;
+      // break string on tokens
+      while (*string && s21_strcspn(string, delim)) string++;
 
       if (*string) {
         *string++ = '\0';
